@@ -4,42 +4,213 @@
 <meta charset="UTF-8">
 <title>InvestGuard | Escrow & Investment Protection</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="InvestGuard – Escrow, етапно финансиране и защита на инвестиции в строителството.">
-<meta name="author" content="InvestGuard">
+<meta name="description" content="InvestGuard – платформа за защита на инвестиции, escrow плащания и контрол в строителството.">
 
 <style>
 :root{
-  --bg:#0b1220; --card:#020617; --border:#1f2937;
-  --accent:#38bdf8; --ok:#22c55e; --muted:#9ca3af; --txt:#e5e7eb;
+  --bg:#060b1a;
+  --bg2:#020617;
+  --card:#0b1220;
+  --border:#1e293b;
+  --blue:#1d9bf0;
+  --green:#22c55e;
+  --text:#e5e7eb;
+  --muted:#94a3b8;
 }
+
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#020617,#0b1220);color:var(--txt);line-height:1.6}
-header{display:flex;justify-content:space-between;align-items:center;padding:18px 28px;border-bottom:1px solid var(--border)}
-.brand{display:flex;align-items:center;gap:10px}
-.brand .logo{width:42px;height:42px}
-.brand .logo svg{width:100%;height:100%}
-.brand .logo.secondary{width:34px;height:34px;opacity:.9}
-nav a{margin-left:18px;color:var(--txt);text-decoration:none;font-weight:bold}
-nav a:hover{color:var(--accent)}
-nav select{margin-left:18px;background:#020617;color:var(--txt);border:1px solid var(--border);padding:6px;border-radius:6px}
-.hero{text-align:center;padding:80px 20px;background:linear-gradient(135deg,#020617,#020617)}
-.hero h1{font-size:42px;margin-bottom:14px}
-.hero p{max-width:820px;margin:0 auto 28px;color:#cbd5f5;font-size:18px}
-.hero .cta{background:var(--ok);color:#022c22;border:none;padding:14px 30px;border-radius:6px;font-weight:bold;cursor:pointer}
-.hero .cta:hover{background:#16a34a}
-section{max-width:1200px;margin:auto;padding:56px 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:24px}
-.card h2{color:var(--accent);margin-bottom:8px}
-.card p{color:var(--muted);font-size:15px}
-.steps .step{display:flex;gap:14px;margin-bottom:16px;background:var(--card);border-left:4px solid var(--ok);padding:18px;border-radius:6px}
-.steps .step span{font-weight:bold;color:var(--ok)}
-form{display:grid;gap:12px}
-input,textarea,button{background:#020617;color:var(--txt);border:1px solid var(--border);border-radius:6px;padding:10px}
-button.submit{background:var(--accent);color:#022c22;font-weight:bold;cursor:pointer}
-button.submit:hover{background:#0ea5e9}
-footer{border-top:1px solid var(--border);padding:26px;text-align:center;color:var(--muted);font-size:14px}
-.small{font-size:13px;color:var(--muted)}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(29,155,240,.15), transparent),
+    radial-gradient(800px 400px at 80% 0%, rgba(34,197,94,.10), transparent),
+    linear-gradient(180deg,var(--bg),var(--bg2));
+  color:var(--text);
+  line-height:1.6;
+}
+
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  z-index:100;
+  backdrop-filter: blur(10px);
+  background:rgba(2,6,23,.75);
+  border-bottom:1px solid var(--border);
+  padding:22px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+
+.brand-logos{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+/* ГОЛЯМО ОСНОВНО ЛОГО */
+.logo-main{
+  width:110px;
+  height:110px;
+  filter:
+    drop-shadow(0 0 18px rgba(29,155,240,.8))
+    drop-shadow(0 0 40px rgba(29,155,240,.35));
+}
+
+.logo-secondary{
+  width:70px;
+  height:70px;
+  filter: drop-shadow(0 0 12px rgba(34,197,94,.6));
+}
+
+.logo-main svg,
+.logo-secondary svg{
+  width:100%;
+  height:100%;
+}
+
+.brand-name{
+  font-size:34px;
+  font-weight:900;
+  letter-spacing:.8px;
+  color:var(--blue);
+}
+
+/* NAV */
+nav a{
+  margin-left:22px;
+  text-decoration:none;
+  color:var(--text);
+  font-weight:bold;
+}
+
+nav a:hover{color:var(--blue)}
+
+nav select{
+  margin-left:22px;
+  background:var(--card);
+  color:var(--text);
+  border:1px solid var(--border);
+  padding:6px 8px;
+  border-radius:6px;
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:120px 20px 100px;
+}
+
+.hero h1{
+  font-size:56px;
+  margin-bottom:22px;
+}
+
+.hero p{
+  max-width:900px;
+  margin:0 auto 36px;
+  font-size:20px;
+  color:#cbd5f5;
+}
+
+.hero button{
+  background:linear-gradient(135deg,var(--blue),#38bdf8);
+  color:#021526;
+  border:none;
+  padding:16px 36px;
+  font-size:18px;
+  font-weight:bold;
+  border-radius:8px;
+  cursor:pointer;
+  box-shadow:0 0 30px rgba(29,155,240,.6);
+}
+
+.hero button:hover{
+  box-shadow:0 0 50px rgba(29,155,240,.9);
+}
+
+/* SECTIONS */
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:80px 20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:28px;
+}
+
+.card{
+  background:linear-gradient(180deg,var(--card),#020617);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:30px;
+  box-shadow:0 0 40px rgba(2,6,23,.9);
+}
+
+.card h2{
+  color:var(--blue);
+  margin-bottom:14px;
+}
+
+.card p{
+  color:var(--muted);
+  font-size:16px;
+}
+
+/* STEPS */
+.step{
+  display:flex;
+  gap:16px;
+  margin-bottom:18px;
+  background:var(--card);
+  border-left:4px solid var(--green);
+  padding:20px;
+  border-radius:8px;
+}
+
+.step span{
+  font-weight:bold;
+  color:var(--green);
+}
+
+/* FORM */
+form{display:grid;gap:14px}
+input,textarea{
+  background:#020617;
+  border:1px solid var(--border);
+  color:var(--text);
+  padding:12px;
+  border-radius:8px;
+}
+button.submit{
+  background:linear-gradient(135deg,var(--green),#16a34a);
+  color:#022c22;
+  font-weight:bold;
+  border:none;
+  padding:12px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);
+  padding:36px;
+  text-align:center;
+  color:var(--muted);
+  font-size:14px;
+}
 </style>
 </head>
 
@@ -47,29 +218,35 @@ footer{border-top:1px solid var(--border);padding:26px;text-align:center;color:v
 
 <header>
   <div class="brand">
-    <!-- ОСНОВНО ЛОГО – СИН ГЛОБУС С КРИЛА (SVG, СИН ЦВЯТ) -->
-    <div class="logo">
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="32" cy="32" r="14" stroke="#38BDF8" stroke-width="2"/>
-        <path d="M18 32h28M32 18v28M22 22c6 6 14 6 20 0M22 42c6-6 14-6 20 0"
-              stroke="#38BDF8" stroke-width="1.5"/>
-        <path d="M6 28c6-2 10-2 14 0M6 36c6 2 10 2 14 0"
-              stroke="#38BDF8" stroke-width="2"/>
-        <path d="M58 28c-6-2-10-2-14 0M58 36c-6 2-10 2-14 0"
-              stroke="#38BDF8" stroke-width="2"/>
-      </svg>
+    <div class="brand-logos">
+
+      <!-- ОСНОВНО ЛОГО – СИН ГЛОБУС С КРИЛА -->
+      <div class="logo-main">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="14" fill="none" stroke="#1d9bf0" stroke-width="3"/>
+          <path d="M18 32h28M32 18v28" stroke="#1d9bf0" stroke-width="2"/>
+          <path d="M22 22c6 6 14 6 20 0M22 42c6-6 14-6 20 0"
+                stroke="#1d9bf0" stroke-width="2"/>
+          <path d="M4 26c8-3 14-3 20 0M4 38c8 3 14 3 20 0"
+                stroke="#1d9bf0" stroke-width="3"/>
+          <path d="M60 26c-8-3-14-3-20 0M60 38c-8 3-14 3-20 0"
+                stroke="#1d9bf0" stroke-width="3"/>
+        </svg>
+      </div>
+
+      <!-- ВТОРА ЕМБЛЕМА -->
+      <div class="logo-secondary">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 6l22 8v14c0 16-11 25-22 32C21 53 10 44 10 28V14l22-8z"
+                fill="none" stroke="#22c55e" stroke-width="3"/>
+          <path d="M22 32l6 6 14-14"
+                stroke="#22c55e" stroke-width="4"/>
+        </svg>
+      </div>
+
     </div>
 
-    <!-- ВТОРИЧНА ЕМБЛЕМА – ВТОРОТО ЛОГО (СТИЛИЗИРАН ЩИТ) -->
-    <div class="logo secondary">
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M32 6l20 8v14c0 14-10 22-20 28C22 50 12 42 12 28V14l20-8z"
-              stroke="#38BDF8" stroke-width="2"/>
-        <path d="M22 32l6 6 14-14" stroke="#22C55E" stroke-width="3"/>
-      </svg>
-    </div>
-
-    <strong>InvestGuard</strong>
+    <div class="brand-name">InvestGuard</div>
   </div>
 
   <nav>
@@ -77,71 +254,41 @@ footer{border-top:1px solid var(--border);padding:26px;text-align:center;color:v
     <a href="#how">Как работи</a>
     <a href="#escrow">Escrow</a>
     <a href="#contact">Контакт</a>
-    <select id="lang" onchange="setLang(this.value)">
-      <option value="bg">BG</option>
-      <option value="en">EN</option>
-      <option value="de">DE</option>
-      <option value="it">IT</option>
-      <option value="tr">TR</option>
-      <option value="ru">RU</option>
-      <option value="sr">SR</option>
-      <option value="zh">中文</option>
+    <select>
+      <option>BG</option><option>EN</option><option>DE</option>
+      <option>IT</option><option>TR</option><option>RU</option>
     </select>
   </nav>
 </header>
 
 <div class="hero">
-  <h1 data-i18n="hero_title">Контролирай инвестицията. Не обещанията.</h1>
-  <p data-i18n="hero_text">
-    Независима платформа за етапно финансиране, контрол на изпълнението и защита на инвеститора.
+  <h1>Контролирай инвестицията.<br>Не обещанията.</h1>
+  <p>
+    InvestGuard е независима платформа за escrow плащания,
+    етапно финансиране и защита на инвеститори и строители.
   </p>
-  <button class="cta" onclick="alert('Demo режим – backend предстои')"
-          data-i18n="hero_cta">Заявка за достъп</button>
+  <button>Заявка за достъп</button>
 </div>
 
 <section id="about">
   <div class="grid">
-    <div class="card">
-      <h2 data-i18n="what_title">Какво е InvestGuard</h2>
-      <p data-i18n="what_text">Платформа за управление на плащанията и риска при инвестиционни и строителни проекти.</p>
-    </div>
-    <div class="card">
-      <h2 data-i18n="who_title">За кого е</h2>
-      <p data-i18n="who_text">Инвеститори, изпълнители, подизпълнители, финансиращи и застрахователни партньори.</p>
-    </div>
-    <div class="card">
-      <h2 data-i18n="cover_title">Застрахователна защита</h2>
-      <p data-i18n="cover_text">Обезпечения до 1 400 000 EUR според проекта и договорните условия.</p>
-    </div>
+    <div class="card"><h2>Какво е InvestGuard</h2><p>Контрол, правила и прозрачност при инвестиционни и строителни проекти.</p></div>
+    <div class="card"><h2>За кого е</h2><p>Инвеститори, изпълнители, подизпълнители, финансови партньори.</p></div>
+    <div class="card"><h2>Застрахователна защита</h2><p>Проекти с покритие до 1 400 000 EUR.</p></div>
   </div>
 </section>
 
-<section id="how" class="steps">
-  <h2 style="text-align:center;margin-bottom:28px" data-i18n="how_title">Как работи</h2>
-  <div class="step"><span>1</span><p data-i18n="how_1">Регистрация на проект, бюджет и участници.</p></div>
-  <div class="step"><span>2</span><p data-i18n="how_2">Дефиниране на етапи и критерии.</p></div>
-  <div class="step"><span>3</span><p data-i18n="how_3">Средствата се държат защитено.</p></div>
-  <div class="step"><span>4</span><p data-i18n="how_4">Освобождаване само при изпълнение.</p></div>
+<section id="how">
+  <div class="step"><span>1</span><p>Регистрация на проект и бюджет.</p></div>
+  <div class="step"><span>2</span><p>Дефиниране на етапи и условия.</p></div>
+  <div class="step"><span>3</span><p>Escrow задържане на средствата.</p></div>
+  <div class="step"><span>4</span><p>Освобождаване само при изпълнение.</p></div>
 </section>
 
 <section id="escrow">
   <div class="grid">
-    <div class="card">
-      <h2>Escrow логика</h2>
-      <p>
-        Инвеститор → Escrow (банка/EMI) → Освобождаване по етапи след верификация.
-      </p>
-      <p class="small">
-        Платформата управлява правилата и тригерите; парите са при лицензирани партньори.
-      </p>
-    </div>
-    <div class="card">
-      <h2>Backend (skeleton)</h2>
-      <p class="small">
-        API endpoints: /auth, /projects, /milestones, /escrow/deposit, /escrow/release, /audit.
-      </p>
-      <button class="submit" onclick="apiDemo()">API Demo</button>
-    </div>
+    <div class="card"><h2>Escrow логика</h2><p>Парите са при лицензирани партньори. Платформата управлява правилата.</p></div>
+    <div class="card"><h2>Backend</h2><p>API: проекти, етапи, escrow, одит.</p></div>
   </div>
 </section>
 
@@ -149,20 +296,16 @@ footer{border-top:1px solid var(--border);padding:26px;text-align:center;color:v
   <div class="grid">
     <div class="card">
       <h2>Контакт</h2>
-      <!-- РЕАЛЕН ИМЕЙЛ ЧРЕЗ FORMSPREE – СМЕНИ XXXXX -->
-      <form action="https://formspree.io/f/XXXXX" method="POST">
-        <input name="name" placeholder="Име" required>
-        <input name="email" type="email" placeholder="Email" required>
-        <textarea name="message" placeholder="Проект / Запитване"></textarea>
-        <button class="submit" type="submit">Изпрати</button>
+      <form>
+        <input placeholder="Име">
+        <input placeholder="Email">
+        <textarea placeholder="Проект / Запитване"></textarea>
+        <button class="submit">Изпрати</button>
       </form>
     </div>
     <div class="card">
       <h2>Правен статус</h2>
-      <p class="small">
-        InvestGuard не е банка, не е застраховател и не е инвестиционен посредник.
-        При неспазване на правилата платформата не носи отговорност.
-      </p>
+      <p>Платформата не е банка и не носи отговорност при неспазване на правилата.</p>
     </div>
   </div>
 </section>
@@ -170,41 +313,6 @@ footer{border-top:1px solid var(--border);padding:26px;text-align:center;color:v
 <footer>
   © 2025 InvestGuard Platform. Всички права запазени.
 </footer>
-
-<script>
-/* ЕЗИЦИ – ГОТОВИ ТЕКСТОВЕ (ВГРАДЕНИ) */
-const i18n = {
-  bg:{hero_title:"Контролирай инвестицията. Не обещанията.",
-      hero_text:"Независима платформа за етапно финансиране, контрол и защита.",
-      hero_cta:"Заявка за достъп",
-      what_title:"Какво е InvestGuard", what_text:"Платформа за управление на плащанията и риска.",
-      who_title:"За кого е", who_text:"Инвеститори, изпълнители, партньори.",
-      cover_title:"Застрахователна защита", cover_text:"Обезпечения до 1 400 000 EUR.",
-      how_title:"Как работи", how_1:"Регистрация на проект.", how_2:"Етапи и критерии.",
-      how_3:"Средства защитено.", how_4:"Освобождаване при изпълнение."
-  },
-  en:{hero_title:"Control the investment. Not promises.",
-      hero_text:"Independent platform for staged funding and investor protection.",
-      hero_cta:"Request access",
-      what_title:"What is InvestGuard", what_text:"Payments and risk control platform.",
-      who_title:"Who it's for", who_text:"Investors, contractors, partners.",
-      cover_title:"Insurance coverage", cover_text:"Coverage up to 1,400,000 EUR.",
-      how_title:"How it works", how_1:"Project registration.", how_2:"Milestones.",
-      how_3:"Funds secured.", how_4:"Release on completion."
-  }
-};
-function setLang(l){
-  const t=i18n[l]||i18n.bg;
-  document.querySelectorAll('[data-i18n]').forEach(e=>e.innerText=t[e.dataset.i18n]);
-}
-
-/* BACKEND DEMO HOOK */
-function apiDemo(){
-  fetch('https://api.investguard.local/demo',{method:'GET'})
-    .then(()=>alert('API hook – демо'))
-    .catch(()=>alert('Backend не е вързан (очаквано).'));
-}
-</script>
 
 </body>
 </html>
